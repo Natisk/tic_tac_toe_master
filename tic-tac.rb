@@ -1,13 +1,15 @@
 class Game
-	@@field_coordinates = {1 => 1, 
-												 2 => 2,
-												 3=> 3,
-												 4=> 4, 
-												 5=> 5,
-												 6=> 6,
-												 7=> 7,
-												 8=> 8,
-												 9=> 9 }
+	@@field_coordinates = {
+    1 => 1, 
+    2 => 2,
+    3=> 3,
+    4=> 4, 
+    5=> 5,
+    6=> 6,
+    7=> 7,
+    8=> 8,
+    9=> 9 
+  }
 
 	def initialize(player1 = nil, player2 = nil)
 		@player1 = player1
