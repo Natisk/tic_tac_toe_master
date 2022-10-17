@@ -32,6 +32,7 @@ class Game
 		puts " #{@@field_coordinates[7]} | #{@@field_coordinates[8]} | #{@@field_coordinates[9]} "
 		puts '-----------'
 	end
+  
 
 	def set_value(value)
 		return warning_message unless valid?(value)
