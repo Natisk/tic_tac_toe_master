@@ -99,7 +99,6 @@ class Game
 			@@field_coordinates[value_from_keybord].is_a? Integer
 		end		
 	end
-
 end
 
 game = Game.new('Player1','Player2')
