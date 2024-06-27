@@ -1,26 +1,26 @@
 class Game
 	@@field_coordinates = {
-		1 => 1, 
+		1 => 1,
 		2 => 2,
 		3=> 3,
-		4=> 4, 
+		4=> 4,
 		5=> 5,
 		6=> 6,
 		7=> 7,
 		8=> 8,
-		9=> 9 
+		9=> 9
 	}
 
 	def initialize(player1 = nil, player2 = nil)
 		@player1 = player1
 		@player2 = player2
-		@turn = 0
+		@turn = 1
 		@draw = false
 	end
 
-	def start				
+	def start
 		draw_field
-		puts "#{@player1} enter your coordinates for X"		
+		puts "#{@player1} enter your coordinates for X"
 	end
 
 	def draw_field
@@ -37,9 +37,9 @@ class Game
 		return warning_message unless valid?(value)
 
 		if turn_even?
-			@@field_coordinates[value] = 'X'			
-		else
 			@@field_coordinates[value] = 'O'
+		else
+			@@field_coordinates[value] = 'X'
 		end
 
 		draw_field
@@ -56,9 +56,9 @@ class Game
 	end
 
 	def finished?
-		if win_condition?			
+		if win_condition?
 			true
-		elsif @@field_coordinates.any? {|key, value| value.is_a? Integer}		
+		elsif @@field_coordinates.any? {|key, value| value.is_a? Integer}
 			false
 		else
 			@draw = true
@@ -71,10 +71,10 @@ class Game
 	end
 
 	def win_condition?
-		(@@field_coordinates[1] == @@field_coordinates[2] && @@field_coordinates[2] == @@field_coordinates[3]) || 
-		(@@field_coordinates[4] == @@field_coordinates[5] && @@field_coordinates[5] == @@field_coordinates[6]) || 
-		(@@field_coordinates[7] == @@field_coordinates[8] && @@field_coordinates[8] == @@field_coordinates[9]) || 
-		(@@field_coordinates[1] == @@field_coordinates[4] && @@field_coordinates[4] == @@field_coordinates[7]) || 
+		(@@field_coordinates[1] == @@field_coordinates[2] && @@field_coordinates[2] == @@field_coordinates[3]) ||
+		(@@field_coordinates[4] == @@field_coordinates[5] && @@field_coordinates[5] == @@field_coordinates[6]) ||
+		(@@field_coordinates[7] == @@field_coordinates[8] && @@field_coordinates[8] == @@field_coordinates[9]) ||
+		(@@field_coordinates[1] == @@field_coordinates[4] && @@field_coordinates[4] == @@field_coordinates[7]) ||
 		(@@field_coordinates[2] == @@field_coordinates[5] && @@field_coordinates[5] == @@field_coordinates[8]) ||
 		(@@field_coordinates[3] == @@field_coordinates[6] && @@field_coordinates[6] == @@field_coordinates[9]) ||
 		(@@field_coordinates[1] == @@field_coordinates[5] && @@field_coordinates[5] == @@field_coordinates[9]) ||
@@ -85,8 +85,8 @@ class Game
 		if @draw
 			puts 'Its a DRAW... play another game'
 		else
-			puts turn_even? ? "#{@player1} is victorious!!!" :  "#{@player2} is victorious!!!"
-		end		
+			puts turn_even? ? "#{@player2} is victorious!!!" :  "#{@player1} is victorious!!!"
+		end
 	end
 
 	def warning_message
@@ -94,10 +94,10 @@ class Game
 	end
 
 	def valid?(value_from_keybord)
-		@@field_coordinates.any? do |key, value| 
-			key == value_from_keybord			
+		@@field_coordinates.any? do |key, value|
+			key == value_from_keybord
 			@@field_coordinates[value_from_keybord].is_a? Integer
-		end		
+		end
 	end
 end
 
@@ -107,6 +107,6 @@ game.start
 
 loop do
   break if game.finished?
-  coordinate = gets.chomp.to_i  
+  coordinate = gets.chomp.to_i
   game.set_value(coordinate)
 end
