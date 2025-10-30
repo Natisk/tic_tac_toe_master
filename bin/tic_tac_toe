@@ -1,0 +1,6 @@
+#!usr/bin/env ruby
+# frosen_string_literal: true
+
+require 'tic_tac_toe_master'
+
+TicTacToeMaster.start
