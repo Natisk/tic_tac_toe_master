@@ -1,6 +1,7 @@
-#!usr/bin/env ruby
-# frosen_string_literal: true
+#!/usr/bin/env ruby
+# frozen_string_literal: true
 
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 require 'tic_tac_toe_master'
 
 TicTacToeMaster.start
