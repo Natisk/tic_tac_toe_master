@@ -3,6 +3,7 @@
 /pkg/
 /vendor/
 /.bundle/
+.rspec_status
 
 # Logs & temp
 /log/
