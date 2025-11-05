@@ -3,50 +3,33 @@
 module TicTacToeMaster
   # Controls the main game flow
   class Game
-    def initialize
-      puts '🎮 Welcome to Tic Tac Toe!'
-      print 'Enter name for Player 1 (X): '
+    attr_reader :player1, :player2, :game, :current_player
 
-      @player1 = TicTacToeMaster::Player.new(gets.strip, 'X')
-
-      print 'Enter name for Player 2 (O): '
-      @player2 = TicTacToeMaster::Player.new(gets.strip, 'O')
-
-      @board = TicTacToeMaster::Board.new
-      @current_player = @player1
+    def initialize(player1_name:, player2_name:)
+      @player1 = Player.new(player1_name, 'X')
+      @player2 = Player.new(player2_name, 'O')
+      @board = Board.new
+      @current_player = @player_1
     end
 
-    def start
-      loop do
-        @board.draw
-        print "\n#{@current_player.name} #{@current_player.symbol}, choose a position (1-9): "
-        move = gets.to_i
+    # returns :invalid, :win, :draw or :next_turn
+    def make_move(position)
+      return :invalid unless board.place(position, current_player.symbol)
 
-        unless @board.place(move, @current_player.symbol)
-          puts '❌ Invalid move, try again.'
-          next
-        end
-
-        if @board.winner?(@current_player.symbol)
-          @board.draw
-          puts "🏆 #{@current_player.name} wins!"
-          break
-        elsif @board.full?
-          @board.draw
-          puts "🤝 It's a draw!"
-        else
-          switch_player
-        end
+      if board.winner?(current_player.symbol)
+        :win
+      elsif board.full?
+        :draw
+      else
+        switch_player
+        :next_turn
       end
-      puts "\n👋 Game over!"
-    rescue Interrupt
-      puts "\nGame interrupted. Good bye!"
     end
 
     private
 
     def switch_player
-      @current_player = @current_player == @player1 ? @player2 : @player1
+      @current_player = current_player == player1 ? player2 : player1
     end
   end
 end
