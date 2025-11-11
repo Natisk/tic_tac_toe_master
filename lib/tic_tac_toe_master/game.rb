@@ -12,7 +12,12 @@ module TicTacToeMaster
       @current_player = @player1
     end
 
-    # returns :invalid, :win, :draw or :next_turn
+    # Makes a move for the current player at the given position.
+    # Returns:
+    # :invalid  - if the move is invalid
+    # :win      - if the current player wins
+    # :draw     - if the board is full (draw)
+    # :next_turn - if the game should continue
     def make_move(position)
       return :invalid unless board.place(position, current_player.symbol)
 
