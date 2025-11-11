@@ -13,10 +13,8 @@ module TicTacToeMaster
 
         loop do
           @game.board.draw
-          print "\n#{@game.current_player.name} #{@game.current_player.symbol}, choose a position (1-9): "
-          move = gets.to_i
 
-          case @game.make_move(move)
+          case @game.make_move(ask_for_move)
           when :invalid
             puts '❌ Invalid move, try again.'
           when :win
@@ -30,6 +28,14 @@ module TicTacToeMaster
           end
         end
         puts "\n👋 Game over!"
+      end
+
+      private
+
+      def ask_for_move
+        print "\n#{@game.current_player.name} #{@game.current_player.symbol}, " \
+              "choose a position #{TicTacToeMaster::Board::FIELD_SIZE}: "
+        gets.to_i
       end
     end
   end
