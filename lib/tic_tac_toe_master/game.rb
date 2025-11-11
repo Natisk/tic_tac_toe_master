@@ -3,7 +3,7 @@
 module TicTacToeMaster
   # Controls the main game flow
   class Game
-    attr_reader :player1, :player2, :game, :current_player, :board
+    attr_reader :player1, :player2, :current_player, :board
 
     def initialize(player1_name:, player2_name:)
       @player1 = Player.new(player1_name, 'X')
