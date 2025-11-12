@@ -45,9 +45,9 @@ TicTacToeMaster.start
 
 ## Roadmap
 
-Add UI::WebUI for integration with Rails or Sinatra
-Add AI for playing against the computer
-Support customizable board size and symbols
+- Add UI::WebUI for integration with Rails or Sinatra
+- Add AI for playing against the computer
+- Support customizable board size and symbols
 
 ## License
 
