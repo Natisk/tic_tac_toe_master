@@ -26,13 +26,14 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'tic_tac_toe_master'
----
+```
 
 Or install it yourself as:
 
 ```bash
 gem install tic_tac_toe_master
----
+```
+
 ## Usage
 
 ```ruby
@@ -40,6 +41,7 @@ require 'tic_tac_toe_master'
 
 # Start the game in console
 TicTacToeMaster.start
+```
 
 ## Roadmap
 
