@@ -5,8 +5,8 @@ It supports both **console interface** and **easy integration into web applicati
 
 [![Ruby](https://img.shields.io/badge/ruby-3.0%2B-red.svg)](https://www.ruby-lang.org/)
 [![Gem](https://img.shields.io/gem/v/tic_tac_toe_master.svg)](https://rubygems.org/gems/tic_tac_toe_master)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/tic_tac_toe_master/ci.yml?branch=main)](https://github.com/yourusername/tic_tac_toe_master/actions)
-[![Coverage Status](https://img.shields.io/codecov/c/github/yourusername/tic_tac_toe_master/main.svg)](https://codecov.io/gh/yourusername/tic_tac_toe_master)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Natisk/tic_tac_toe_master/ci.yml?branch=main)](https://github.com/Natisk/tic_tac_toe_master/actions)
+[![Coverage Status](https://img.shields.io/codecov/c/github/Natisk/tic_tac_toe_master/main.svg)](https://codecov.io/gh/Natisk/tic_tac_toe_master)
 
 ---
 
