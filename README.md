@@ -34,6 +34,12 @@ Or install it yourself as:
 gem install tic_tac_toe_master
 ```
 
+To start playing just type in console:
+
+```bash
+tic_tac_toe
+```
+
 ## Usage
 
 ```ruby
