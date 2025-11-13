@@ -6,9 +6,9 @@ module TicTacToeMaster
     attr_reader :player1, :player2, :current_player, :board
 
     def initialize(player1_name:, player2_name:)
-      @player1 = Player.new(player1_name, 'X')
-      @player2 = Player.new(player2_name, 'O')
-      @board = Board.new
+      @player1 = TicTacToeMaster::Player.new(player1_name, 'X')
+      @player2 = TicTacToeMaster::Player.new(player2_name, 'O')
+      @board = TicTacToeMaster::Board.new
       @current_player = @player1
     end
 

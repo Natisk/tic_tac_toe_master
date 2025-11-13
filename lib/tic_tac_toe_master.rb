@@ -20,7 +20,7 @@ module TicTacToeMaster
     # Examples:
     #   TicTacToeMaster.start
     #   TicTacToeMaster.start(ui_class: UI::ConsoleUI, player1_name: 'Alice', player2_name: 'Bob')
-    def start(ui_class: UI::ConsoleUI, player1_name: nil, player2_name: nil)
+    def start(ui_class: TicTacToeMaster::UI::ConsoleUI, player1_name: nil, player2_name: nil)
       player1_name, player2_name = resolve_player_names(ui_class, player1_name, player2_name)
 
       game = Game.new(player1_name: player1_name, player2_name: player2_name)
@@ -35,7 +35,7 @@ module TicTacToeMaster
     #
     # Returns an array: [player1_name, player2_name]
     def resolve_player_names(ui_class, player1_name, player2_name)
-      if ui_class == UI::ConsoleUI
+      if ui_class == TicTacToeMaster::UI::ConsoleUI
         player1_name ||= ask_for_name('Player 1 (X)')
         player2_name ||= ask_for_name('Player 2 (O)')
       else
