@@ -17,15 +17,6 @@ module TicTacToeMaster
       @grid = FIELD_SIZE.to_a
     end
 
-    def draw
-      puts '-----------'
-
-      grid.each_slice(3) do |row|
-        puts " #{row.join(' | ')} "
-        puts '-----------'
-      end
-    end
-
     def place(position, symbol)
       return false unless valid_position?(position)
 
