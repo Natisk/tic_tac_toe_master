@@ -7,9 +7,15 @@ module TicTacToeMaster
   class Game
     extend Forwardable
 
-    def_delegators :@board, :place, :winner?, :full?
+    def_delegators :@board, :place, :grid, :full?
 
     attr_reader :player1, :player2, :current_player, :board
+
+    WIN_CONBINATIONS = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
+    ].freeze
 
     def initialize(player1_name:, player2_name:)
       @player1 = TicTacToeMaster::Player.new(player1_name, 'X')
@@ -41,6 +47,12 @@ module TicTacToeMaster
 
     def switch_player
       @current_player = current_player == player1 ? player2 : player1
+    end
+
+    def winner?(symbol)
+      WIN_CONBINATIONS.any? do |combo|
+        combo.all? { |index| grid[index] == symbol }
+      end
     end
   end
 end

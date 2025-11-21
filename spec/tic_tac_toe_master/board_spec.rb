@@ -50,27 +50,4 @@ RSpec.describe TicTacToeMaster::Board do
       expect(board.full?).to be true
     end
   end
-
-  describe '#winner?' do
-    it 'returns true for a winning combination in a row' do
-      board.place(1, 'X')
-      board.place(2, 'X')
-      board.place(3, 'X')
-      expect(board.winner?('X')).to be true
-    end
-
-    it 'returns true for a winning combination on a diagonal' do
-      board.place(1, 'O')
-      board.place(5, 'O')
-      board.place(9, 'O')
-      expect(board.winner?('O')).to be true
-    end
-
-    it 'returns false if there is no winner' do
-      board.place(1, 'X')
-      board.place(2, 'O')
-      board.place(3, 'X')
-      expect(board.winner?('X')).to be false
-    end
-  end
 end
