@@ -1,14 +1,8 @@
 # frozen_string_literal: true
 
-require 'forwardable'
-
 module TicTacToeMaster
   # Controls the main game flow
   class Game
-    extend Forwardable
-
-    def_delegators :@board, :place, :grid, :full?
-
     attr_reader :player1, :player2, :current_player, :board
 
     WIN_CONBINATIONS = [
@@ -31,11 +25,11 @@ module TicTacToeMaster
     # :draw     - if the board is full (draw)
     # :next_turn - if the game should continue
     def make_move(position)
-      return :invalid unless place(position, current_player.symbol)
+      return :invalid unless board.place(position, current_player.symbol)
 
       if winner?(current_player.symbol)
         :win
-      elsif full?
+      elsif board.full?
         :draw
       else
         switch_player
@@ -43,16 +37,16 @@ module TicTacToeMaster
       end
     end
 
+    def winner?(symbol)
+      WIN_CONBINATIONS.any? do |combo|
+        combo.all? { |index| board.grid[index] == symbol }
+      end
+    end
+
     private
 
     def switch_player
       @current_player = current_player == player1 ? player2 : player1
-    end
-
-    def winner?(symbol)
-      WIN_CONBINATIONS.any? do |combo|
-        combo.all? { |index| grid[index] == symbol }
-      end
     end
   end
 end
