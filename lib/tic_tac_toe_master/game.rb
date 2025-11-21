@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
+require 'forwardable'
+
 module TicTacToeMaster
   # Controls the main game flow
   class Game
+    extend Forwardable
+
+    def_delegators :@board, :place, :winner?, :full?
+
     attr_reader :player1, :player2, :current_player, :board
 
     def initialize(player1_name:, player2_name:)
@@ -19,11 +25,11 @@ module TicTacToeMaster
     # :draw     - if the board is full (draw)
     # :next_turn - if the game should continue
     def make_move(position)
-      return :invalid unless board.place(position, current_player.symbol)
+      return :invalid unless place(position, current_player.symbol)
 
-      if board.winner?(current_player.symbol)
+      if winner?(current_player.symbol)
         :win
-      elsif board.full?
+      elsif full?
         :draw
       else
         switch_player
